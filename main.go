@@ -1,7 +1,6 @@
 package main
 
 import (
-	"code.google.com/p/gorilla/sessions"
 	"fmt"
 	"github.com/gorilla/mux"
 	"html/template"
@@ -9,28 +8,11 @@ import (
 	"net/http"
 	"net/smtp"
 	"os"
+	"portfolio/handlers"
 	"portfolio/utils"
 )
 
 const port = ":80"
-
-var store = sessions.NewCookieStore([]byte("QWERTYIOPLKJHGFDSASDVBNM<KJUTRE"))
-
-func Handler(w http.ResponseWriter, r *http.Request) {
-	t := template.Must(template.New("base.html").Funcs(utils.FuncMap).ParseFiles(
-		"web/templates/base.html",
-		"web/templates/index.html",
-	))
-
-	session, _ := store.Get(r, "session")
-	context := make(map[string]interface{})
-	context["flashes"] = session.Flashes()
-	session.Save(r, w)
-
-	if err := t.Execute(w, context); err != nil {
-		http.Error(w, err.Error(), http.StatusInternalServerError)
-	}
-}
 
 func Emailer(w http.ResponseWriter, r *http.Request) {
 	if r.Method == "POST" {
@@ -38,7 +20,7 @@ func Emailer(w http.ResponseWriter, r *http.Request) {
 		subject := r.FormValue("subject")
 		message := r.FormValue("message")
 
-		session, _ := store.Get(r, "session")
+		session, _ := utils.Store.Get(r, "session")
 
 		if email == "" && subject == "" && message == "" {
 			session.AddFlash("Try setting a value first.")
@@ -94,7 +76,7 @@ func main() {
 	r := mux.NewRouter()
 	r = mux.NewRouter()
 
-	r.HandleFunc("/", Handler)
+	r.HandleFunc("/", handlers.IndexHandler)
 	r.HandleFunc("/contact", Emailer)
 	r.HandleFunc("/projects/{project}", Projects)
 

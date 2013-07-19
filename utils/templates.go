@@ -1,13 +1,16 @@
 package utils
 
 import (
-	"reflect"
+	"code.google.com/p/gorilla/sessions"
 	"html/template"
+	"reflect"
 )
 
 var FuncMap = template.FuncMap{
 	"any": Any,
 }
+
+var Store = sessions.NewCookieStore([]byte("QWERTYIOPLKJHGFDSASDVBNM<KJUTRE"))
 
 // any reports whether the first argument is equal to
 // any of the remaining arguments.
