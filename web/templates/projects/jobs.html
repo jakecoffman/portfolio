@@ -1,0 +1,29 @@
+{{define "title"}}jobs{{end}}
+
+{{define "content"}}
+<h1>Top St Louis Jobs</h1>
+    <div class="container-fluid">
+        <div class="row-fluid">
+
+            <div class="span3">
+                {{template "side" .}}
+            </div>
+            <div class="span9">
+                <p>I made this small project because I was curious what the most popular languages
+                and employers were for the area. The data was pulled from indeed.com's API.</p>
+                <p>These are just screenshots... to see a (possibly) fresher version of the data go here:
+                <a href="http://jakecoffman.github.io/stl-tech-jobs/">http://jakecoffman.github.io/stl-tech-jobs/</a>.
+                </p>
+                <p><a href="http://jakecoffman.github.io/stl-tech-jobs/charts/language-popularity.html" class="thumbnail"><img src="/static/jobs/toplang.png"></a>
+                <p><a href="http://jakecoffman.github.io/stl-tech-jobs/charts/top-employer.html" class="thumbnail"><img src="/static/jobs/topemp.png"></a>
+                <p><a href="http://jakecoffman.github.io/stl-tech-jobs/charts/lang-by-date.html" class="thumbnail"><img src="/static/jobs/postings.png"></a>
+            </div>
+        </div>
+    </div>
+{{end}}
+
+{{define "footer"}}
+{{end}}
+
+{{define "scripts"}}
+{{end}}

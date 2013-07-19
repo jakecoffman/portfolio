@@ -1,11 +1,23 @@
 {{define "side"}}
 <ul class="nav nav-list well">
     <li class="nav-header">Projects</li>
+    <li {{if any .project "alarm"}}class="active"{{end}}>
+        <a href="/projects/alarm">alarm</a>
+    </li>
+    <li {{if any .project "desk"}}class="active"{{end}}>
+        <a href="/projects/desk">desk</a>
+    </li>
     <li {{if any .project "gorunner"}}class="active"{{end}}>
         <a href="/projects/gorunner">gorunner</a>
     </li>
-    <li {{if any .project "alarm"}}class="active"{{end}}>
-        <a href="/projects/alarm">alarm</a>
+    <li {{if any .project "flask_tutorial"}}class="active"{{end}}>
+        <a href="/projects/flask_tutorial">flask tutorial</a>
+    </li>
+    <li {{if any .project "jobs"}}class="active"{{end}}>
+        <a href="/projects/jobs">stl tech jobs</a>
+    </li>
+    <li {{if any .project "taskpy"}}class="active"{{end}}>
+        <a href="/projects/taskpy">taskpy</a>
     </li>
 </ul>
 {{end}}

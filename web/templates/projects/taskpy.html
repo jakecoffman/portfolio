@@ -1,0 +1,78 @@
+{{define "title"}}taskpy{{end}}
+
+{{define "content"}}
+    <h1>Taskpy</h1>
+    <div class="container-fluid">
+        <div class="row-fluid">
+            <div class="span3">{{template "side" .}}</div>
+            <div class="span9">
+                <h2>My experience with continuous integration</h2>
+
+                <p>
+                    As a software engineer, I am a big proponent of continuous integration. I have much experience
+                    setting
+                    up continuous integration environments. My first was a series of Perl scripts (not written by me)
+                    that would
+                    execute from a hook in subversion to run a build automatically. I thought this was a really neat
+                    concept and
+                    hacked in new features.</p>
+
+                <p>My next employer was experimenting with CruiseControl which was nice in that you had a web server and
+                    didn't need
+                    to ssh into machines all the time. What wasn't nice was that most maintenance required you to remote
+                    into the
+                    machine, and you had no idea if the build was frozen or not. Also it used Ant and all your build
+                    steps were
+                    embedded in XML.</p>
+
+                <p>So I started a project to implement a newer continuous integration server called Hudson, now known as
+                    Jenkins.
+                    Wow, what a difference! Once set up, you hardly have to remote into machines anymore and you could
+                    tell exactly
+                    where the build was by clicking through to the console output. You can also use (almost) whatever
+                    scripting
+                    language you want to write your build steps. The features don't stop there though, as you can set up
+                    an entire
+                    build farm with Jenkins. Jenkins can usually manage the whole setup itself, bringing slave nodes up
+                    and down as
+                    you click around on the web interface.</p>
+
+                <p>With all this coolness at my fingertips, I set up hundreds of jobs automating builds, metrics
+                    collection, peer
+                    review generation and more. If it could be done by a script then I had it doing it on a regular
+                    basis
+                    automatically.
+
+                <p>I hit a snag though. Each team wanted something a *little* different in their jobs. So soon this
+                    marvelous
+                    machine became a nightmare to manage. All the copy-pasting of code made it hard to see what was
+                    different
+                    between two jobs. Diffing the XML files behind the scenes helped but was a hack.
+
+                <h2>Enter Taskpy</h2>
+                <iframe width="420" height="315" src="http://www.youtube.com/embed/LmBeipoZ5WU" frameborder="0"
+                        style="float:right;"></iframe>
+                <p>Taskpy is my answer to Jenkins's main design flaw: reusability of custom steps. In Taskpy, rather
+                    than editing a job and typing in code, you create a task and assign it one script. Then you create a
+                    job and
+                    assign it any number of tasks. So if you have 10 jobs that all have one task in common, edit the
+                    task and all of
+                    the jobs change!
+
+                <p>The Taskpy is written in Python using web.py and is a RESTful web service. I'm using web.py's
+                    templating engine
+                    for now. I'm also using the latest version of jQuery to send PUT/DELETE commands and do other neat
+                    JavaScript
+                    stuff.
+
+                <p><a href="http://code.google.com/p/taskpy/">http://code.google.com/p/taskpy/</a>
+            </div>
+        </div>
+    </div>
+{{end}}
+
+{{define "footer"}}
+{{end}}
+
+{{define "scripts"}}
+{{end}}
