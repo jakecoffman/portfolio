@@ -3,13 +3,14 @@ package handlers
 import (
 	"html/template"
 	"net/http"
+	"os"
 	"portfolio/utils"
 )
 
 func IndexHandler(w http.ResponseWriter, r *http.Request) {
 	t := template.Must(template.New("base.html").Funcs(utils.FuncMap).ParseFiles(
-		"web/templates/base.html",
-		"web/templates/index.html",
+		os.Getenv("WEBROOT")+"web/templates/base.html",
+		os.Getenv("WEBROOT")+"web/templates/index.html",
 	))
 
 	session, _ := utils.Store.Get(r, "session")

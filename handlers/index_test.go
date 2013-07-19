@@ -5,6 +5,7 @@ import (
 	"log"
 	"net/http"
 	"net/http/httptest"
+	"os"
 	"testing"
 )
 
@@ -15,6 +16,8 @@ func TestIndexHandler(t *testing.T) {
 	}
 
 	w := httptest.NewRecorder()
+
+	os.Setenv("WEBROOT", "../")
 	IndexHandler(w, req)
 
 	fmt.Printf("%d - %s", w.Code, w.Body.String())
