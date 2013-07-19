@@ -1,0 +1,89 @@
+{{define "title"}}gorunner{{end}}
+
+{{define "content"}}
+    <h1>gorunner</h1>
+    <div class="container-fluid">
+        <div class="row-fluid">
+            <div class="span3">{{template "side" .}}</div>
+            <div class="span9">
+                <p>
+                    This is a project I am writing in Go. It's another continuous integration server like Jenkins.
+                    I was hitting a wall with <a href="/projects/taskpy">Taskpy</a> since Python doesn't do
+                    multi-threading
+                    well. Rather than picking up a Gevent or other coroutine library, I am rewriting in Go. Hey, it's an
+                    excuse to learn Go!
+                </p>
+
+                <div class="row-fluid">
+                    <div class="span10 offset1">
+                        <div id="myCarousel" class="carousel slide"
+                             style="max-width: 700px; max-height: 500px; margin-left: auto; margin-right: auto;">
+                            <ol class="carousel-indicators">
+                                <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+                                <li data-target="#myCarousel" data-slide-to="1"></li>
+                                <li data-target="#myCarousel" data-slide-to="2"></li>
+                                <li data-target="#myCarousel" data-slide-to="3"></li>
+                            </ol>
+                            <!-- Carousel items -->
+                            <div class="carousel-inner">
+                                <div class="active item">
+                                    <img src="/static/gorunner/jobs.png" width="100%" height="100%"/>
+
+                                    <div class="carousel-caption">
+                                        <h4>Job Management</h4>
+
+                                        <p>You can create jobs, and bind tasks to them to be executed.</p>
+                                    </div>
+                                </div>
+                                <div class="item">
+                                    <img src="/static/gorunner/task.png" width="100%" height="100%"/>
+
+                                    <div class="carousel-caption">
+                                        <h4>Task Definitions</h4>
+
+                                        <p>Write task scripts directly in the browser with syntax highlighting.</p>
+                                    </div>
+                                </div>
+                                <div class="item">
+                                    <img src="/static/gorunner/run.png" width="100%" height="100%"/>
+
+                                    <div class="carousel-caption">
+                                        <h4>Run Results</h4>
+
+                                        <p>View outputs and errors from Job runs.</p>
+                                    </div>
+                                </div>
+                                <div class="item">
+                                    <img src="/static/gorunner/runs.png" width="100%" height="100%"/>
+
+                                    <div class="carousel-caption">
+                                        <h4>Runs Overview</h4>
+
+                                        <p>See all running jobs and recent results.</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- Carousel nav -->
+                            <a class="carousel-control left" href="#myCarousel" data-slide="prev">&lsaquo;</a>
+                            <a class="carousel-control right" href="#myCarousel" data-slide="next">&rsaquo;</a>
+                        </div>
+                    </div>
+                </div>
+                <h2>See also</h2>
+                <ul>
+                    <li><a href="http://github.com/jakecoffman/gorunner">http://github.com/jakecoffman/gorunner</a></li>
+                </ul>
+
+            </div>
+        </div>
+    </div>
+{{end}}
+
+{{define "footer"}}
+{{end}}
+
+{{define "scripts"}}
+<script>
+    $('#myCarousel').carousel();
+</script>
+{{end}}

@@ -1,0 +1,53 @@
+{{define "title"}}alarm{{end}}
+
+{{define "content"}}
+    <h1>Arduino Alarm System</h1>
+    <div class="container-fluid">
+        <div class="row-fluid">
+
+            <div class="span3">
+                {{template "side" .}}
+            </div>
+            <div class="span9">
+                <iframe style="float:right;padding: 20px;" width="420" height="315"
+                        src="http://www.youtube.com/embed/lfOxgK1-5HM"
+                        frameborder="0"
+                        allowfullscreen></iframe>
+                <ul>
+                    <li>1 Arduino</li>
+                    <li>1 ethernet shield</li>
+                    <li>1 piezo buzzer</li>
+                    <li>1 magnetic switch</li>
+                    <li>2 resistors (1k and 10k)</li>
+                    <li>2 long strands of 22 gauge wire</li>
+                </ul>
+                <p>
+                    The system is not connected to a computer. Instead it uses the Ethernet Shield
+                    to directly send emails. This means it is a low power solution. Battery backup
+                    would be pretty cheap to implement as a result. I get emails and texts when:
+                </p>
+                <ul>
+                    <li>The door opens</li>
+                    <li>The door is held open for more than 10 seconds</li>
+                    <li>The Arduino reboots</li>
+                </ul>
+                <p>
+                    These three conditions are enough to indicate when power goes out, or when the sensor falls off the
+                    door to
+                    help
+                    reduce false positives.
+                </p>
+
+                <p>More information:</p>
+                <ul>
+                    <li><a href="http://code.google.com/p/arduino-security-system">The Codes</a></li>
+                    <li><a href="/static/schematic.png">Schematic</a></li>
+                    <li><a href="http://bit.ly/12qfKjA">Email to Text Message</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+{{end}}
+
+{{define "footer"}}
+{{end}}

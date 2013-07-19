@@ -1,0 +1,11 @@
+{{define "side"}}
+<ul class="nav nav-list well">
+    <li class="nav-header">Projects</li>
+    <li {{if any .project "gorunner"}}class="active"{{end}}>
+        <a href="/projects/gorunner">gorunner</a>
+    </li>
+    <li {{if any .project "alarm"}}class="active"{{end}}>
+        <a href="/projects/alarm">alarm</a>
+    </li>
+</ul>
+{{end}}
