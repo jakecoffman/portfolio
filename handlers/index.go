@@ -1,10 +1,10 @@
 package handlers
 
 import (
+	"github.com/jakecoffman/portfolio/utils"
 	"html/template"
 	"net/http"
 	"os"
-	"portfolio/utils"
 )
 
 func IndexHandler(w http.ResponseWriter, r *http.Request) {

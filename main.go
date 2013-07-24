@@ -3,14 +3,14 @@ package main
 import (
 	"fmt"
 	"github.com/gorilla/mux"
+	"github.com/jakecoffman/portfolio/handlers"
+	"github.com/jakecoffman/portfolio/utils"
 	"html/template"
 	"math/rand"
 	"net"
 	"net/http"
 	"net/smtp"
 	"os"
-	"portfolio/handlers"
-	"portfolio/utils"
 	"time"
 )
 
