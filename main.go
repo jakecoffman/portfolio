@@ -4,12 +4,14 @@ import (
 	"fmt"
 	"github.com/gorilla/mux"
 	"html/template"
+	"math/rand"
 	"net"
 	"net/http"
 	"net/smtp"
 	"os"
 	"portfolio/handlers"
 	"portfolio/utils"
+	"time"
 )
 
 const port = ":80"
@@ -66,6 +68,8 @@ func Projects(w http.ResponseWriter, r *http.Request) {
 func main() {
 	wd, _ := os.Getwd()
 	println("Working directory", wd)
+
+	rand.Seed(time.Now().UTC().UnixNano())
 
 	server := &http.Server{Addr: port, Handler: nil}
 	l, e := net.Listen("tcp", port)

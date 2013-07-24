@@ -2,7 +2,6 @@ body {
     background: url('/static/light_wool.png');
     font-size: 16px;
     position: relative;
-    padding-top: 40px;
 }
 
 h1 {
@@ -87,7 +86,19 @@ only screen and (     -o-min-device-pixel-ratio: 2/1) {
 
 }
 
+/* Portrait tablet to landscape and desktop */
+@media (min-width: 1200px) {
+  body {
+    padding-top: 40px;
+  }
+}
 
+/* Portrait tablet to landscape and desktop */
+@media (min-width: 979px) and (max-width: 1200px){
+  body{
+    padding-top: 40px;
+  }
+}
 
 /* Tablet
 ------------------------- */

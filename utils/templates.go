@@ -3,6 +3,7 @@ package utils
 import (
 	"code.google.com/p/gorilla/sessions"
 	"html/template"
+	"math/rand"
 	"reflect"
 )
 
@@ -10,7 +11,19 @@ var FuncMap = template.FuncMap{
 	"any": Any,
 }
 
-var Store = sessions.NewCookieStore([]byte("QWERTYIOPLKJHGFDSASDVBNM<KJUTRE"))
+func randInt(min int, max int) int {
+	return min + rand.Intn(max-min)
+}
+
+func randomString(l int) string {
+	bytes := make([]byte, l)
+	for i := 0; i < l; i++ {
+		bytes[i] = byte(randInt(65, 90))
+	}
+	return string(bytes)
+}
+
+var Store = sessions.NewCookieStore([]byte(randomString(100)))
 
 // any reports whether the first argument is equal to
 // any of the remaining arguments.
