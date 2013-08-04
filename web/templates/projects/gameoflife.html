@@ -1,0 +1,34 @@
+{{define "title"}}Game of Life{{end}}
+
+{{define "content"}}
+    <h1>Game of Life</h1>
+    <div class="container-fluid">
+        <div class="row-fluid">
+            <div class="span3">{{template "side" .}}</div>
+            <div class="span9">
+            <p>Here's Conways Game of Life written in Javascript (Angular.js):</p>
+            <ul class="thumbnails">
+                <li class="span6"><a href="#" class="thumbnail"><iframe id="theFrame" src="http://jakecoffman.github.io/ng-gol/" style="height:500px" frameborder="0">
+                </iframe></a></li>
+            </ul>
+                <p>I've also implemented Conways Game of Life in other languages:</p>
+                <dl class="dl-horizontal">
+                    <dt>Angular.js</dt>
+                    <dd><a href="https://github.com/jakecoffman/ng-gol">https://github.com/jakecoffman/ng-gol</a></dd>
+                    <dt>Java</dt>
+                    <dd><a href="https://github.com/jakecoffman/GameOfLifeFactory">https://github.com/jakecoffman/GameOfLifeFactory</a></dd>
+                    <dt>Ruby</dt>
+                    <dd><a href="https://github.com/jakecoffman/game-of-life">https://github.com/jakecoffman/game-of-life</a></dd>
+
+                </dl>
+                <p>
+            </div>
+        </div>
+    </div>
+{{end}}
+
+{{define "footer"}}
+{{end}}
+
+{{define "scripts"}}
+{{end}}
