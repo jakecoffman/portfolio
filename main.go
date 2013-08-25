@@ -16,6 +16,8 @@ import (
 
 const port = ":80"
 
+var password = os.Getenv("emailpassword")
+
 func Emailer(w http.ResponseWriter, r *http.Request) {
 	if r.Method == "POST" {
 		email := r.FormValue("email")
@@ -27,12 +29,16 @@ func Emailer(w http.ResponseWriter, r *http.Request) {
 		if email == "" && subject == "" && message == "" {
 			session.AddFlash("Try setting a value first.")
 		} else {
-			auth := smtp.PlainAuth("", "no-reply@coffshire.com", "no-reply password", "smtp.gmail.com")
+			auth := smtp.PlainAuth("", "no-reply@coffshire.com", password, "smtp.gmail.com")
+			fmt.Printf(password)
 			to := []string{"jakecoffman@gmail.com"}
 			payload := []byte(fmt.Sprintf("Subject: Portfolio contact\r\n\r\nEmail: %s\r\nSubject: %s\r\nMessage:\r\n%s", email, subject, message))
-			smtp.SendMail("smtp.gmail.com:587", auth, "no-reply@coffshire.com", to, payload)
-
-			session.AddFlash("Email sent.")
+			err := smtp.SendMail("smtp.gmail.com:587", auth, "no-reply@coffshire.com", to, payload)
+			if err != nil {
+				session.AddFlash("Failed to send email")
+			} else {
+				session.AddFlash("Email sent.")
+			}
 		}
 		session.Save(r, w)
 	}
@@ -77,8 +83,9 @@ func main() {
 		panic(e)
 	}
 
+	fmt.Printf(password)
+
 	r := mux.NewRouter()
-	r = mux.NewRouter()
 
 	r.HandleFunc("/", handlers.IndexHandler)
 	r.HandleFunc("/contact", Emailer)
