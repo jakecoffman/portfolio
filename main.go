@@ -30,7 +30,6 @@ func Emailer(w http.ResponseWriter, r *http.Request) {
 			session.AddFlash("Try setting a value first.")
 		} else {
 			auth := smtp.PlainAuth("", "no-reply@coffshire.com", password, "smtp.gmail.com")
-			fmt.Printf(password)
 			to := []string{"jakecoffman@gmail.com"}
 			payload := []byte(fmt.Sprintf("Subject: Portfolio contact\r\n\r\nEmail: %s\r\nSubject: %s\r\nMessage:\r\n%s", email, subject, message))
 			err := smtp.SendMail("smtp.gmail.com:587", auth, "no-reply@coffshire.com", to, payload)
@@ -82,8 +81,6 @@ func main() {
 	if e != nil {
 		panic(e)
 	}
-
-	fmt.Printf(password)
 
 	r := mux.NewRouter()
 
