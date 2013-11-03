@@ -11,6 +11,7 @@ import (
 	"net/http"
 	"net/smtp"
 	"os"
+	"os/signal"
 	"time"
 )
 
@@ -81,6 +82,7 @@ func main() {
 	if e != nil {
 		panic(e)
 	}
+	defer l.Close()
 
 	r := mux.NewRouter()
 
@@ -92,22 +94,18 @@ func main() {
 	http.Handle("/static/", http.StripPrefix("/static/", http.FileServer(http.Dir("web/static/"))))
 
 	go func() {
-		// run stuff outside of the main loop
+		fmt.Println("Running on " + port)
+		server.Serve(l)
 	}()
 
-	go func() {
-		for {
-			fmt.Println("Running on " + port)
-			server.Serve(l)
-			l, e = net.Listen("tcp", port)
-			if e != nil {
-				panic(e)
-			}
-		}
-	}()
-	defer l.Close()
-
-	select {}
+	// Capture keyboard interrupt and then stop gracefully
+	c := make(chan os.Signal, 1)
+	signal.Notify(c, os.Interrupt)
+	select {
+	case <-c:
+		fmt.Println("Received interrupt, closing listener")
+		l.Close()
+	}
 
 	println("Dead")
 }
