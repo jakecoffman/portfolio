@@ -6,6 +6,7 @@ import (
 	"github.com/jakecoffman/portfolio/handlers"
 	"github.com/jakecoffman/portfolio/utils"
 	"html/template"
+	"log"
 	"math/rand"
 	"net"
 	"net/http"
@@ -18,6 +19,10 @@ import (
 const port = ":80"
 
 var password = os.Getenv("emailpassword")
+
+var logFile *os.File
+
+var router *mux.Router
 
 func Emailer(w http.ResponseWriter, r *http.Request) {
 	if r.Method == "POST" {
@@ -71,9 +76,24 @@ func Projects(w http.ResponseWriter, r *http.Request) {
 	}
 }
 
+func handler(w http.ResponseWriter, r *http.Request) {
+	// Before
+	router.ServeHTTP(w, r)
+	// After
+	fmt.Fprintf(logFile, "%s %s %s\n", r.RemoteAddr, r.Method, r.URL)
+}
+
 func main() {
 	wd, _ := os.Getwd()
 	println("Working directory", wd)
+
+	var err error
+	logFile, err = os.Create("logs.txt")
+	if err != nil {
+		log.Fatal("Tried to create log file: ", err)
+		return
+	}
+	defer logFile.Close()
 
 	rand.Seed(time.Now().UTC().UnixNano())
 
@@ -84,14 +104,13 @@ func main() {
 	}
 	defer l.Close()
 
-	r := mux.NewRouter()
+	router = mux.NewRouter()
+	router.HandleFunc("/", handlers.IndexHandler)
+	router.HandleFunc("/contact", Emailer)
+	router.HandleFunc("/projects/{project}", Projects)
+	router.PathPrefix("/static/").Handler(http.FileServer(http.Dir("web/")))
 
-	r.HandleFunc("/", handlers.IndexHandler)
-	r.HandleFunc("/contact", Emailer)
-	r.HandleFunc("/projects/{project}", Projects)
-
-	http.Handle("/", r)
-	http.Handle("/static/", http.StripPrefix("/static/", http.FileServer(http.Dir("web/static/"))))
+	http.HandleFunc("/", handler)
 
 	go func() {
 		fmt.Println("Running on " + port)
