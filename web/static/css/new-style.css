@@ -467,3 +467,7 @@ h2 {
         background: none;
     }
 }
+
+.badge {
+    font-size: 10pt;
+}
