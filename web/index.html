@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" ng-app="portfolio">
+<html lang="en" ng-app="portfolio" ng-controller="MainCtl">
 <head>
 	<meta charset="utf-8">
 	<title>Jake Coffman</title>
@@ -9,6 +9,7 @@
 
 	<link href="/static/bootstrap/bootstrap.min.css" rel="stylesheet">
 	<link href="/static/bootstrap/bootstrap-theme.min.css" rel="stylesheet">
+	<link href="/static/fa/css/font-awesome.css" rel="stylesheet">
 	<link href="/static/css/new-style.css" rel="stylesheet">
 
 	<!--[if lt IE 9]>
@@ -23,15 +24,15 @@
 </div>
 <footer class="footer">
 	<div class="container">
-		<p>All words and code by Jake. Built with Bootstrap and Go.</p>
+		<p>All words and code by Jake.</p>
 
 		<p>Images generally used without permission. It's easier to ask forgiveness. If you want something removed, let
 			me know.</p>
-		<!--<ul class="footer-links">
-			<li><a href="#">Resume</a></li>
+		<ul class="footer-links">
+			<li><a href="#"><i class="fa fa-home"></i> Home</a></li>
 			<li class="muted">·</li>
-			<li><a href="#">Projects</a></li>
-		</ul>-->
+			<li><a href="#/?scrollTo=contact"><i class="fa fa-envelope"></i> Contact</a></li>
+		</ul>
 	</div>
 </footer>
 <script src="/static/angular/angular.min.js"></script>

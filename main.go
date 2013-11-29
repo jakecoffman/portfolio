@@ -1,8 +1,8 @@
 package main
 
 import (
+	"encoding/json"
 	"fmt"
-	"github.com/jakecoffman/portfolio/utils"
 	"log"
 	"math/rand"
 	"net"
@@ -19,33 +19,42 @@ var password = os.Getenv("emailpassword")
 
 var logFile *os.File
 
+type Email struct {
+	Email   string `json:email`
+	Subject string `json:subject`
+	Message string `json:message`
+}
+
 func Emailer(w http.ResponseWriter, r *http.Request) {
 	if r.Method == "POST" {
-		email := r.FormValue("email")
-		subject := r.FormValue("subject")
-		message := r.FormValue("message")
+		decoder := json.NewDecoder(r.Body)
+		var data Email
+		err := decoder.Decode(&data)
+		if err != nil {
+			http.Error(w, "Failed loading JSON", http.StatusBadRequest)
+			return
+		}
 
-		session, _ := utils.Store.Get(r, "session")
-
-		if email == "" && subject == "" && message == "" {
-			session.AddFlash("Try setting a value first.")
+		if data.Email == "" && data.Subject == "" && data.Message == "" {
+			http.Error(w, "Try setting something first", http.StatusBadRequest)
+			return
 		} else {
 			auth := smtp.PlainAuth("", "no-reply@coffshire.com", password, "smtp.gmail.com")
 			to := []string{"jakecoffman@gmail.com"}
-			payload := []byte(fmt.Sprintf("Subject: Portfolio contact\r\n\r\nEmail: %s\r\nSubject: %s\r\nMessage:\r\n%s", email, subject, message))
+			payload := []byte(fmt.Sprintf("Subject: Portfolio contact\r\n\r\nEmail: %s\r\nSubject: %s\r\nMessage:\r\n%s", data.Email, data.Subject, data.Message))
 			err := smtp.SendMail("smtp.gmail.com:587", auth, "no-reply@coffshire.com", to, payload)
 			if err != nil {
-				w.Write([]byte(err.Error()))
+				println(err.Error())
+				http.Error(w, "Failed sending", http.StatusInternalServerError)
 				return
 			} else {
-				http.Redirect(w, r, "/email-sent.html", http.StatusFound)
+				w.WriteHeader(201)
 				return
 			}
 		}
-		session.Save(r, w)
 	}
 
-	http.Redirect(w, r, "/#contact", http.StatusFound)
+	http.Redirect(w, r, "/#/?scrollTo=contact", http.StatusFound)
 }
 
 func main() {

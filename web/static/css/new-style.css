@@ -169,7 +169,7 @@ hr {
     color: #F1F1F1;
 }
 
-#contact {
+.contact {
     background-image: url(/static/img/code2.jpg);
     background-size: cover;
     color: #F1F1F1;
