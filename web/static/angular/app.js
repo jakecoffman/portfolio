@@ -82,17 +82,8 @@ var logos = [{
 	image: "python.png",
 	alt: "python"
 },{
-	image: "js.png",
-	alt: "javascript"
-},{
-	image: "ruby.gif",
-	alt: "ruby"
-},{
-	image: "go.png",
-	alt: "go"
-},{
-	image: "java.png",
-	alt: "java"
+	image: "git.png",
+	alt: "git"
 },{
 	image: "angularjs.png",
 	alt: "angularjs"
@@ -100,6 +91,15 @@ var logos = [{
 	image: "django.png",
 	alt: "django"
 },{
-	image: "git.png",
-	alt: "git"
-}]
+	image: "js.png",
+	alt: "javascript"
+},{
+	image: "java.png",
+	alt: "java"
+},{
+	image: "go.png",
+	alt: "go"
+},{
+	image: "ruby.gif",
+	alt: "ruby"
+}];
