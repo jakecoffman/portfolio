@@ -1,57 +1,75 @@
-<div class="container">
-	<div class="row">
-<div ng-include="'/templates/project_navigation.html'" class='pull-right'></div>
-		<h1>Flask Video Tutorial</h1>
+<style>
+	a {
+		color: darkorange;
+	}
+	a:hover {
+		color: darkorange;
+	}
+</style>
+<div class="jumbotron" style="background-color: {{getColor(project)}}; color: white;">
+	<div class="container">
+		<div class="row">
+			<div ng-include="'/templates/project_navigation.html'" class='pull-right'></div>
+			<h1>Flask Video Tutorial</h1>
 
-		<p>This project is a video tutorial series I made on YouTube. My
-			target audience is beginners to both Python and web programming.
-			I try to explain things in simple terms, and write the simplest
-			HTML possible.</p>
+			<p>This project is a video tutorial series I made on YouTube. My
+				target audience is beginners to both Python and web programming.
+				I try to explain things in simple terms, and write the simplest
+				code possible.</p>
 
-		<h3><a href="http://www.youtube.com/playlist?list=PL0DA14EB3618A3507">For the complete playlist, click here.</a>
-		</h3>
+			<h3><a href="http://www.youtube.com/playlist?list=PL0DA14EB3618A3507">For the complete playlist, click
+				here.</a>
+			</h3>
 
-		<ul>
-			<li><a href="http://www.youtube.com/watch?v=iSrZ6r7hwdM&list=PL0DA14EB3618A3507&index=1&feature=plpp_video">Part
-				1 - Hello World!</a></li>
 			<ul>
-				<li>This first video is a quick introduction to try to get people
-					hooked. I try to keep all of my videos short, but this one
-					particularly!
-				</li>
+				<li>
+					<a href="http://www.youtube.com/watch?v=iSrZ6r7hwdM&list=PL0DA14EB3618A3507&index=1&feature=plpp_video">Part
+						1 - Hello World!</a></li>
+				<ul>
+					<li>This first video is a quick introduction to try to get people
+						hooked. I try to keep all of my videos short, but this one
+						particularly!
+					</li>
+				</ul>
+				<li>
+					<a href="http://www.youtube.com/watch?v=Wb-K40mkhEU&list=PL0DA14EB3618A3507&index=2&feature=plpp_video">Part
+						2 - Dangerous stuff</a></li>
+				<ul>
+					<li>The next video I felt like I had to do something exciting to
+						keep people coming back. At the time of this writing, this is my
+						most popular video so I guess I was successful.
+					</li>
+				</ul>
+				<li>
+					<a href="http://www.youtube.com/watch?v=AnNHVupZi5c&list=PL0DA14EB3618A3507&index=3&feature=plpp_video">Part
+						3 - Login</a></li>
+				<ul>
+					<li>Next up was a boring but needed step: login pages! As expected, this video has around half the
+						views
+						as the previous two.
+					</li>
+				</ul>
+				<li>
+					<a href="http://www.youtube.com/watch?v=Qe7JrEDUBlA&list=PL0DA14EB3618A3507&index=4&feature=plpp_video">Part
+						4 - Music</a></li>
+				<ul>
+					<li>I felt like I had to spice things up, so I created a music library player!</li>
+				</ul>
+				<li>
+					<a href="http://www.youtube.com/watch?v=jELLsj1KPNQ&list=PL0DA14EB3618A3507&index=5&feature=plpp_video">Part
+						5 - Static pages</a></li>
+				<ul>
+					<li>Back to the bore: making static pages and cleaning up the code.</li>
+				</ul>
+				<li>
+					<a href="http://www.youtube.com/watch?v=rHGPQj8sfUs&list=PL0DA14EB3618A3507&index=6&feature=plpp_video">Part
+						6 - Databases</a></li>
+				<ul>
+					<li>Many people were asking about databases, so I did a quick roundup in this video.</li>
+				</ul>
 			</ul>
-			<li><a href="http://www.youtube.com/watch?v=Wb-K40mkhEU&list=PL0DA14EB3618A3507&index=2&feature=plpp_video">Part
-				2 - Dangerous stuff</a></li>
-			<ul>
-				<li>The next video I felt like I had to do something exciting to
-					keep people coming back. At the time of this writing, this is my
-					most popular video so I guess I was successful.
-				</li>
-			</ul>
-			<li><a href="http://www.youtube.com/watch?v=AnNHVupZi5c&list=PL0DA14EB3618A3507&index=3&feature=plpp_video">Part
-				3 - Login</a></li>
-			<ul>
-				<li>Next up was a boring but needed step: login pages! As expected, this video has around half the views
-					as the previous two.
-				</li>
-			</ul>
-			<li><a href="http://www.youtube.com/watch?v=Qe7JrEDUBlA&list=PL0DA14EB3618A3507&index=4&feature=plpp_video">Part
-				4 - Music</a></li>
-			<ul>
-				<li>I felt like I had to spice things up, so I created a music library player!</li>
-			</ul>
-			<li><a href="http://www.youtube.com/watch?v=jELLsj1KPNQ&list=PL0DA14EB3618A3507&index=5&feature=plpp_video">Part
-				5 - Static pages</a></li>
-			<ul>
-				<li>Back to the bore: making static pages and cleaning up the code.</li>
-			</ul>
-			<li><a href="http://www.youtube.com/watch?v=rHGPQj8sfUs&list=PL0DA14EB3618A3507&index=6&feature=plpp_video">Part
-				6 - Databases</a></li>
-			<ul>
-				<li>Many people were asking about databases, so I did a quick roundup in this video.</li>
-			</ul>
-		</ul>
-		<p>The source for all of my videos is linked on each YouTube page.</p>
+			<p>The source for all of my videos is linked on each YouTube page.</p>
 
+		</div>
 	</div>
 </div>

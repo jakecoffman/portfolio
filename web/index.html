@@ -7,9 +7,9 @@
 	<meta name="description" content="jake coffman's portfolio">
 	<meta name="author" content="jake coffman">
 
-	<link href="/static/bootstrap/bootstrap.min.css" rel="stylesheet">
-	<link href="/static/bootstrap/bootstrap-theme.min.css" rel="stylesheet">
-	<link href="/static/fa/css/font-awesome.css" rel="stylesheet">
+	<link href="http://netdna.bootstrapcdn.com/bootstrap/3.0.3/css/bootstrap.min.css" rel="stylesheet">
+	<link href="http://netdna.bootstrapcdn.com/bootswatch/3.0.2/yeti/bootstrap.min.css" rel="stylesheet">
+	<link href="http://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.min.css" rel="stylesheet">
 	<link href="/static/css/new-style.css" rel="stylesheet">
 
 	<!--[if lt IE 9]>
@@ -18,23 +18,7 @@
 
 	<link rel="shortcut icon" href="/static/ico/favicon.ico"/>
 </head>
-<body>
-<div id="wrap">
-	<div ng-view id="main"></div>
-</div>
-<footer class="footer">
-	<div class="container">
-		<p>All words and code by Jake. Site built with Go and Angularjs.</p>
-
-		<p>Images generally used without permission. It's easier to ask forgiveness. If you want something removed, let
-			me know.</p>
-		<ul class="footer-links">
-			<li><a href="#"><i class="fa fa-home"></i> Home</a></li>
-			<li class="muted">·</li>
-			<li><a href="#/?scrollTo=contact"><i class="fa fa-envelope"></i> Contact</a></li>
-		</ul>
-	</div>
-</footer>
+<body ng-view>
 <script src="/static/angular/angular.min.js"></script>
 <script src="/static/angular/angular-route.min.js"></script>
 <script src="/static/angular/app.js"></script>
