@@ -1,34 +1,21 @@
-<style>
-	a {
-		color: white;
-	}
-	a:hover {
-		color: white;
-	}
-</style>
-<div class="jumbotron" style="background-color: {{getColor(project)}}; color: white;">
+<div class="container">
+	<div class="row">
+		<div ng-include="'/templates/project_navigation.html'" class='pull-right'></div>
+		<h1>Game of Life</h1>
 
-	<div class="container">
-		<div class="row">
-			<div ng-include="'/templates/project_navigation.html'" class='pull-right'></div>
-			<h1>Game of Life</h1>
-
-			<p>Here's Conways Game of Life written in Javascript (Angular.js):</p>
-			<iframe class="thumbnail col-md-offset-2" id="theFrame" src="http://jakecoffman.github.io/ng-gol/"
-					style="height:500px"
-					frameborder="0"></iframe>
-			<p>I've also implemented Conways Game of Life in other languages:</p>
-			<dl class="dl-horizontal">
-				<dt>Angular.js</dt>
-				<dd><a href="https://github.com/jakecoffman/ng-gol">https://github.com/jakecoffman/ng-gol</a></dd>
-				<dt>Java</dt>
-				<dd><a href="https://github.com/jakecoffman/GameOfLifeFactory">https://github.com/jakecoffman/GameOfLifeFactory</a>
-				</dd>
-				<dt>Ruby</dt>
-				<dd>
-					<a href="https://github.com/jakecoffman/game-of-life">https://github.com/jakecoffman/game-of-life</a>
-				</dd>
-			</dl>
-		</div>
+		<p>Here's Conways Game of Life written in Javascript (Angular.js):</p>
+		<iframe class="thumbnail col-md-offset-2" id="theFrame" src="http://jakecoffman.github.io/ng-gol/" style="height:500px"
+				frameborder="0"></iframe>
+		<p>I've also implemented Conways Game of Life in other languages:</p>
+		<dl class="dl-horizontal">
+			<dt>Angular.js</dt>
+			<dd><a href="https://github.com/jakecoffman/ng-gol">https://github.com/jakecoffman/ng-gol</a></dd>
+			<dt>Java</dt>
+			<dd><a href="https://github.com/jakecoffman/GameOfLifeFactory">https://github.com/jakecoffman/GameOfLifeFactory</a>
+			</dd>
+			<dt>Ruby</dt>
+			<dd><a href="https://github.com/jakecoffman/game-of-life">https://github.com/jakecoffman/game-of-life</a>
+			</dd>
+		</dl>
 	</div>
 </div>

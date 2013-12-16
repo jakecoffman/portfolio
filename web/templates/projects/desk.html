@@ -1,20 +1,31 @@
-<div class="jumbotron" style="background-color: {{getColor(project)}}; color: white;">
-	<div class="container">
+<div class="container">
+	<div class="row">
+<div ng-include="'/templates/project_navigation.html'" class='pull-right'></div>
+		<h1>Building a Standing Desk</h1>
+
+		<p>After reading about standing desks and getting back pain from the cheap chairs at work, I decided to
+			ditch sitting
+			and embrace vertical computing at home. Being a hacker/maker I decided to build one myself, with
+			much assistance
+			from my brother who graciously supplied the workspace and the wood.
+
+		<p>Now that I have been using a standing desk for a few years, I've noticed a few things. First,
+			whenever I feel like I want to get a drink or go check out something in the other room,
+			I just go. Before I felt like I would wait for a good opportunity to walk around, but since I'm
+			standing already I
+			just go for it. Next, I move very often while standing. I sway back and forth, kick back a leg now
+			and then, and
+			lean back. It's very natural and I do it without thinking. My final observation is it makes me feel
+			lazy to watch TV
+			while sitting. My PC is now healthier for me to use than the TV!
+
 		<div class="row">
-			<div ng-include="'/templates/project_navigation.html'"></div>
-			<h1>Standing Desk</h1>
-
-			<p>I started getting interested in standing desks before they were affordable,
-				so I built one myself. I highly recommend standing desks. </p>
-
-			<div class="row">
-				<div class="col-sm-6 col-md-4" ng-repeat="i in desk">
-					<a href="{{i.href}}" class="thumbnail">
-						<img src="{{i.href}}"/>
-					</a>
-				</div>
+			<div class="col-sm-6 col-md-4" ng-repeat="i in desk">
+				<a href="{{i.href}}" class="thumbnail">
+					<img src="{{i.href}}"/>
+				</a>
 			</div>
-
 		</div>
+
 	</div>
 </div>

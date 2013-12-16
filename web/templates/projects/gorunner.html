@@ -1,81 +1,71 @@
-<style>
-	a {
-		color: midnightblue;
-	}
-	a:hover {
-		color: midnightblue;
-	}
-</style>
-<div class="jumbotron" style="background-color: {{getColor(project)}}; color: white;">
-	<div class="container">
-		<div ng-include="'/templates/project_navigation.html'" class='pull-right'></div>
-		<h1>gorunner</h1>
+<div class="container">
+	<div ng-include="'/templates/project_navigation.html'" class='pull-right'></div>
+	<h1>gorunner</h1>
 
-		<p>
-			This is a project I am writing in Go. It's another continuous integration server like Jenkins.
-			I was hitting a wall with <a href="http://github.com/jakecoffman/taskpy">Taskpy</a> since Python doesn't do
-			multi-threading
-			well. Rather than picking up a Gevent or other coroutine library, I am rewriting in Go. Hey, it's an
-			excuse to learn Go!
-		</p>
+	<p>
+		This is a project I am writing in Go. It's another continuous integration server like Jenkins.
+		I was hitting a wall with <a href="/projects/taskpy">Taskpy</a> since Python doesn't do
+		multi-threading
+		well. Rather than picking up a Gevent or other coroutine library, I am rewriting in Go. Hey, it's an
+		excuse to learn Go!
+	</p>
 
-		<div class="row">
-			<div class="col-sm-6 col-md-3">
-				<div class="thumbnail">
-					<a href="/static/gorunner/jobs.png" class="thumbnail">
-						<img src="/static/gorunner/jobs.png"/>
-					</a>
+	<div class="row">
+		<div class="col-sm-6 col-md-3">
+			<div class="thumbnail">
+				<a href="/static/gorunner/jobs.png" class="thumbnail">
+					<img src="/static/gorunner/jobs.png"/>
+				</a>
 
-					<div class="caption">
-						<h3>Job Management</h3>
+				<div class="caption">
+					<h3>Job Management</h3>
 
-						<p>You can create jobs, and bind tasks to them to be executed.</p>
-					</div>
-				</div>
-			</div>
-			<div class="col-sm-6 col-md-3">
-				<div class="thumbnail">
-					<a href="/static/gorunner/task.png" class="thumbnail">
-						<img src="/static/gorunner/task.png"/>
-					</a>
-
-					<div class="caption">
-						<h3>Task Definitions</h3>
-
-						<p>Write task scripts directly in the browser with syntax highlighting.</p>
-					</div>
-				</div>
-			</div>
-			<div class="col-sm-6 col-md-3">
-				<div class="thumbnail">
-					<a href="/static/gorunner/run.png" class="thumbnail">
-						<img src="/static/gorunner/run.png"/>
-					</a>
-
-					<div class="caption">
-						<h3>Run Results</h3>
-
-						<p>View outputs and errors from Job runs.</p>
-					</div>
-				</div>
-			</div>
-			<div class="col-sm-6 col-md-3">
-				<div class="thumbnail">
-					<a href="/static/gorunner/runs.png" class="thumbnail">
-						<img src="/static/gorunner/runs.png"/>
-					</a>
-
-					<div class="caption">
-						<h3>Runs Overview</h3>
-
-						<p>See all running jobs and recent results.</p>
-					</div>
+					<p>You can create jobs, and bind tasks to them to be executed.</p>
 				</div>
 			</div>
 		</div>
-		<h2>See also</h2>
-		<ul>
-			<li><a href="http://github.com/jakecoffman/gorunner">http://github.com/jakecoffman/gorunner</a></li>
-		</ul>
+		<div class="col-sm-6 col-md-3">
+			<div class="thumbnail">
+				<a href="/static/gorunner/task.png" class="thumbnail">
+					<img src="/static/gorunner/task.png"/>
+				</a>
+
+				<div class="caption">
+					<h3>Task Definitions</h3>
+
+					<p>Write task scripts directly in the browser with syntax highlighting.</p>
+				</div>
+			</div>
+		</div>
+		<div class="col-sm-6 col-md-3">
+			<div class="thumbnail">
+				<a href="/static/gorunner/run.png" class="thumbnail">
+					<img src="/static/gorunner/run.png"/>
+				</a>
+
+				<div class="caption">
+					<h3>Run Results</h3>
+
+					<p>View outputs and errors from Job runs.</p>
+				</div>
+			</div>
+		</div>
+		<div class="col-sm-6 col-md-3">
+			<div class="thumbnail">
+				<a href="/static/gorunner/runs.png" class="thumbnail">
+					<img src="/static/gorunner/runs.png"/>
+				</a>
+
+				<div class="caption">
+					<h3>Runs Overview</h3>
+
+					<p>See all running jobs and recent results.</p>
+				</div>
+			</div>
+		</div>
 	</div>
+	<h2>See also</h2>
+	<ul>
+		<li><a href="http://github.com/jakecoffman/gorunner">http://github.com/jakecoffman/gorunner</a></li>
+	</ul>
 </div>

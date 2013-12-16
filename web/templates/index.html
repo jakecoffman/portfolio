@@ -1,27 +1,217 @@
-<div class="jumbotron indextron">
-	<div class="inner">
+<div class="jumbotron" id="home">
+	<div class="container">
 		<h1>Jake Coffman</h1>
-		<p>Software Developer</p>
-		<p>St. Louis, MO</p>
-		<br/>
-		<p>This is my portfolio: a safe place for me to try crazy color schemes and page layouts.</p>
-		<p>The boxes below are links. Click 'em.</p>
+
+		<p>Full-Stack Software Developer</p>
+		<!--<ul class="masthead-links">-->
+		<!--<li><span class="label">Python</span></li>-->
+		<!--<li><span class="label">Javascript</span></li>-->
+		<!--<li><span class="label">Go</span></li>-->
+		<!--</ul>-->
 	</div>
 </div>
-<div class="row-main">
-	<a href="#/projects">
-		<div class="col-xs-4 main" style="background-color: darkorange">
-			<h3>Projects</h3>
+<div class="push"></div>
+<div class="container-fluid">
+<article class="col-md-12">
+	<div class="pad"></div>
+
+	<div class="row">
+		<div class="col-md-4">
+			<h2 style="white-space: nowrap">Introducing Jake.</h2>
 		</div>
-	</a>
-	<a href="#/blog">
-		<div class="col-xs-4 main" style="background-color: purple">
-			<h3>Something</h3>
+		<div class="span8 hidden-phone">
+			<hr/>
 		</div>
-	</a>
-	<a href="#/contact">
-		<div class="col-xs-4 main" style="background-color: brown">
-			<h3>Contact</h3>
+	</div>
+	<div class="pad"></div>
+	<div class="row intro">
+		<div class="col-md-4">
+			<div class="thumbnail"><img class="marketing-img" src="/static/mvc.png"></div>
+			<h3>Full-Stack</h3>
+
+			<p>Jake is comfortable in any layer of the software stack, whether the architecture is n-tier or
+				MVC.</p>
 		</div>
-	</a>
+		<div class="col-md-4">
+			<div class="thumbnail"><img class="marketing-img" src="/static/ch.png"></div>
+			<h3>Software hobbyist</h3>
+
+			<p>Jake considers software a hobby and finds it fun to learn new things about writing (and
+				reading!)
+				software.</p>
+		</div>
+		<div class="col-md-4">
+			<div class="thumbnail"><img class="marketing-img" src="/static/initech.png"></div>
+			<h3>Gets things done</h3>
+
+			<p>Jake values shipped products. What good is software that is constantly being refactored but
+				never released?</p>
+		</div>
+	</div>
+</article>
+<div class="push"></div>
+<div class="push"></div>
+<article id="projects" class="col-md-12">
+	<div class="pad"></div>
+
+	<div class="row">
+		<div class="col-md-3">
+			<h2>Projects</h2>
+		</div>
+		<div class="col-md-9 hidden-phone">
+			<hr/>
+		</div>
+	</div>
+	<p>Here is a selection of Jake's projects. Click to read about each.</p>
+
+	<div class="pad"></div>
+
+	<div class="row">
+		<div class="col-sm-6 col-md-3">
+			<div class="thumbnail">
+				<a href="#projects/gorunner" class="thumbnail">
+					<img src="/static/thumbs/gorunner.png">
+				</a>
+
+				<div class="caption">
+					gorunner
+				</div>
+			</div>
+		</div>
+		<div class="col-sm-6 col-md-3">
+			<div class="thumbnail">
+				<a href="#projects/alarm" class="thumbnail">
+					<img src="/static/thumbs/arduino.png">
+				</a>
+
+				<div class="caption">
+					arduino security system
+				</div>
+			</div>
+		</div>
+		<div class="col-sm-6 col-md-3">
+			<div class="thumbnail">
+				<a href="#projects/flask_tutorial" class="thumbnail">
+					<img src="/static/thumbs/flask.png">
+				</a>
+
+				<div class="caption">
+					flask tutorial
+				</div>
+			</div>
+		</div>
+		<div class="col-sm-6 col-md-3">
+			<div class="thumbnail">
+				<a href="#projects/taskpy" class="thumbnail">
+					<img src="/static/thumbs/taskpy.png">
+				</a>
+
+				<div class="caption">
+					taskpy
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="row">
+		<div class="col-sm-6 col-md-offset-1 col-md-3">
+			<div class="thumbnail">
+				<a href="#projects/gameoflife" class="thumbnail">
+					<img src="/static/thumbs/gol.png">
+				</a>
+
+				<div class="caption">
+					game of life
+				</div>
+			</div>
+		</div>
+		<div class="col-sm-6 col-md-3">
+			<div class="thumbnail">
+				<a href="#projects/desk" class="thumbnail">
+					<img src="/static/thumbs/desk.jpg">
+				</a>
+
+				<div class="caption">
+					standing desk
+				</div>
+			</div>
+		</div>
+		<div class="col-sm-6 col-md-3">
+			<div class="thumbnail">
+				<a href="#projects/jobs" class="thumbnail">
+					<img src="/static/thumbs/jobs.png">
+				</a>
+
+				<div class="caption">
+					st louis jobs
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="push"></div>
+</article>
+<div class="push"></div>
+<article class="col-md-12" id="experience">
+	<div class="pad"></div>
+
+	<div class="row">
+		<div class="col-md-3">
+			<h2>Experience</h2>
+		</div>
+		<div class="col-md-9 hidden-phone">
+			<hr/>
+		</div>
+	</div>
+	<p>Jake has 7 years of professional software development experience. Here are a few of his favorite technologies.</p>
+
+	<div class="pad"></div>
+
+	<div class="row">
+		<div class="col-sm-6 col-md-3" ng-repeat="l in logos">
+			<a href="" class="thumbnail">
+				<img ng-src="/static/experience/{{l.image}}" alt="{{l.alt}}">
+			</a>
+		</div>
+	</div>
+
+	<div class="push"></div>
+</article>
+<div class="push"></div>
+<article class="contact col-md-12" id="contact">
+	<div class="pad"></div>
+
+	<div class="row">
+		<div class="col-md-3">
+			<h2>Contact</h2>
+		</div>
+		<div class="col-md-9 hidden-phone">
+			<hr/>
+		</div>
+	</div>
+	<div class="alert alert-danger" ng-show="contacted != ''">{{contacted}}</div>
+	<p>Fill out this form to send Jake an email. I am not interested in SEO!</p>
+
+	<div class="pad"></div>
+
+	<div class="row">
+		<div class="form-vertical col-md-offset-2 col-md-8">
+			<div class="form-group">
+				<label>Email:</label>
+				<input type="text" class="form-control" ng-model="email"/>
+			</div>
+
+			<div class="form-group">
+				<label>Subject:</label>
+				<input type="text" class="form-control" ng-model="subject"/>
+			</div>
+
+			<div class="form-group">
+				<label for="message">Message:</label>
+				<textarea id="message" class="form-control" ng-model="message" rows="10" cols="50"></textarea>
+			</div>
+
+			<button class="btn btn-primary" ng-click="contacto(email, subject, message)">Send</button>
+		</div>
+	</div>
+	<div class="push"></div>
+</article>
 </div>
