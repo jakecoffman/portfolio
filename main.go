@@ -39,7 +39,7 @@ func Emailer(w http.ResponseWriter, r *http.Request) {
 			http.Error(w, "Try setting something first", http.StatusBadRequest)
 			return
 		} else {
-			printf("Using password %s", password)
+			fmt.Printf("Using password %s", password)
 			auth := smtp.PlainAuth("", "no-reply@coffshire.com", password, "smtp.gmail.com")
 			to := []string{"jakecoffman@gmail.com"}
 			payload := []byte(fmt.Sprintf(`From: no-reply@gmail.com
