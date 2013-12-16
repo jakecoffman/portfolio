@@ -57,7 +57,14 @@ func Emailer(w http.ResponseWriter, r *http.Request) {
 			}
 
 			defer wc.Close()
-			buf := bytes.NewBufferString(fmt.Sprintf("Email: %s\nSubject: %s\nMessage:\n%s", data.Email, data.Subject, data.Message))
+			buf := bytes.NewBufferString(fmt.Sprintf(`From: no-reply@jakecoffman.com
+To: jake.coffman@gmail.com
+Subject: portfolio contact
+
+Email: %s
+Subject: %s
+Message:
+%s`, data.Email, data.Subject, data.Message))
 			if _, err = buf.WriteTo(wc); err != nil {
 				println(err.Error())
 				http.Error(w, err.Error(), http.StatusInternalServerError)
