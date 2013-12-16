@@ -1,6 +1,7 @@
 package main
 
 import (
+	"bytes"
 	"encoding/json"
 	"fmt"
 	"log"
@@ -39,29 +40,32 @@ func Emailer(w http.ResponseWriter, r *http.Request) {
 			http.Error(w, "Try setting something first", http.StatusBadRequest)
 			return
 		} else {
-			fmt.Printf("Using password %s", password)
-			auth := smtp.PlainAuth("", "no-reply@coffshire.com", password, "smtp.gmail.com")
-			to := []string{"jakecoffman@gmail.com"}
-			payload := []byte(fmt.Sprintf(`From: no-reply@gmail.com
-To: jakecoffman@gmail.com
-Subject: Portfolio contact
-MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-Content-Type: text/plain; charset="UTF-8"
-
-Email: %s
-Subject: %s
-Message:
-%s`, data.Email, data.Subject, data.Message))
-			err := smtp.SendMail("smtp.gmail.com:587", auth, "no-reply@coffshire.com", to, payload)
+			c, err := smtp.Dial("localhost:25")
 			if err != nil {
 				println(err.Error())
 				http.Error(w, err.Error(), http.StatusInternalServerError)
 				return
-			} else {
-				w.WriteHeader(201)
+			}
+
+			c.Mail("no-reply@jakecoffman.com")
+			c.Rcpt("jake@jakecoffman.com")
+			wc, err := c.Data()
+			if err != nil {
+				println(err.Error())
+				http.Error(w, err.Error(), http.StatusInternalServerError)
 				return
 			}
+
+			defer wc.Close()
+			buf := bytes.NewBufferString(fmt.Sprintf("Email: %s\nSubject: %s\nMessage:\n%s", data.Email, data.Subject, data.Message))
+			if _, err = buf.WriteTo(wc); err != nil {
+				println(err.Error())
+				http.Error(w, err.Error(), http.StatusInternalServerError)
+				return
+			}
+			w.WriteHeader(201)
+			return
+
 		}
 	}
 
