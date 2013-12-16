@@ -2,7 +2,7 @@ var app = angular.module('portfolio', ['ngRoute']);
 
 app.config(['$routeProvider', function($routeProvider){
 	$routeProvider.when("/", {
-		templateUrl: "/templates/index.html"
+		templateUrl: "/templates/home.html"
 	});
 	$routeProvider.when("/projects/:project", {
 		templateUrl: function(params) { return "/templates/projects/" + params.project + ".html" },

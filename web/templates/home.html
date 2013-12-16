@@ -1,0 +1,201 @@
+<div class="jumbotron">
+	<div class="pad"></div>
+	<div class="container">
+		<div class="row">
+			<h1>Jake Coffman</h1>
+
+			<p>Full-Stack Software Developer</p>
+			<ul class="list-inline" style="font-size: 0.7em">
+				<li>Frontend</li>
+				<li>-</li>
+				<li>Backend</li>
+				<li>-</li>
+				<li>Design</li>
+			</ul>
+		</div>
+	</div>
+	<div class="pad"></div>
+</div>
+<div class="container">
+	<div class="pad"></div>
+	<div class="row">
+		<h2>Introducing Jake.</h2>
+
+		<div class="col-sm-4">
+			<div class="thumbnail"><img class="marketing-img" src="/static/mvc.png"></div>
+			<h3>Full-Stack</h3>
+
+			<p>Jake is comfortable in any layer of the software stack, whether the architecture is n-tier or
+				MVC.</p>
+		</div>
+		<div class="col-sm-4">
+			<div class="thumbnail"><img class="marketing-img" src="/static/ch.png"></div>
+			<h3>Software hobbyist</h3>
+
+			<p>Jake considers software a hobby and finds it fun to learn new things about writing (and
+				reading!)
+				software.</p>
+		</div>
+		<div class="col-sm-4">
+			<div class="thumbnail"><img class="marketing-img" src="/static/initech.png"></div>
+			<h3>Gets things done</h3>
+
+			<p>Jake values shipped products. What good is software that is constantly being refactored but
+				never released?</p>
+		</div>
+	</div>
+	<div class="pad"></div>
+</div>
+<div id="projects">
+	<div class="container">
+		<div class="pad"></div>
+		<div class="row">
+
+			<h2>Projects</h2>
+
+			<p>Here is a selection of Jake's projects. Click to read about each.</p>
+
+			<div class="col-sm-6 col-md-3">
+				<div class="thumbnail">
+					<a href="#projects/gorunner" class="thumbnail">
+						<img src="/static/thumbs/gorunner.png">
+					</a>
+
+					<div class="caption">
+						gorunner
+					</div>
+				</div>
+			</div>
+			<div class="col-sm-6 col-md-3">
+				<div class="thumbnail">
+					<a href="#projects/alarm" class="thumbnail">
+						<img src="/static/thumbs/arduino.png">
+					</a>
+
+					<div class="caption">
+						arduino security system
+					</div>
+				</div>
+			</div>
+			<div class="col-sm-6 col-md-3">
+				<div class="thumbnail">
+					<a href="#projects/flask_tutorial" class="thumbnail">
+						<img src="/static/thumbs/flask.png">
+					</a>
+
+					<div class="caption">
+						flask tutorial
+					</div>
+				</div>
+			</div>
+			<div class="col-sm-6 col-md-3">
+				<div class="thumbnail">
+					<a href="#projects/taskpy" class="thumbnail">
+						<img src="/static/thumbs/taskpy.png">
+					</a>
+
+					<div class="caption">
+						taskpy
+					</div>
+				</div>
+			</div>
+			<div class="col-sm-6 col-md-offset-1 col-md-3">
+				<div class="thumbnail">
+					<a href="#projects/gameoflife" class="thumbnail">
+						<img src="/static/thumbs/gol.png">
+					</a>
+
+					<div class="caption">
+						game of life
+					</div>
+				</div>
+			</div>
+			<div class="col-sm-6 col-md-3">
+				<div class="thumbnail">
+					<a href="#projects/desk" class="thumbnail">
+						<img src="/static/thumbs/desk.jpg">
+					</a>
+
+					<div class="caption">
+						standing desk
+					</div>
+				</div>
+			</div>
+			<div class="col-sm-6 col-md-3">
+				<div class="thumbnail">
+					<a href="#projects/jobs" class="thumbnail">
+						<img src="/static/thumbs/jobs.png">
+					</a>
+
+					<div class="caption">
+						st louis jobs
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="pad"></div>
+	</div>
+</div>
+<div class="container">
+	<div class="pad"></div>
+	<div class="row">
+		<h2>Experience</h2>
+
+		<p>Jake has 7 years of professional software development experience. Here are a few of his favorite
+			technologies.</p>
+
+		<div class="row">
+			<div class="col-sm-6 col-md-3" ng-repeat="l in logos">
+				<a href="" class="thumbnail">
+					<img ng-src="/static/experience/{{l.image}}" alt="{{l.alt}}">
+				</a>
+			</div>
+		</div>
+	</div>
+	<div class="pad"></div>
+</div>
+<div id="contact">
+	<div class="container">
+		<div class="pad"></div>
+		<div class="row">
+			<h2>Contact</h2>
+
+			<div class="alert alert-danger" ng-show="contacted != ''">{{contacted}}</div>
+
+			<div class="row">
+				<div class="form-horizontal col-md-offset-2 col-md-8">
+					<p>Fill out this form to send Jake an email. I am not interested in SEO!</p>
+
+					<div class="form-group">
+						<label class="col-sm-2 control-label">Email:</label>
+
+						<div class="col-sm-10">
+							<input type="text" class="form-control" ng-model="email"/>
+						</div>
+					</div>
+
+					<div class="form-group">
+						<label class="col-sm-2 control-label">Subject:</label>
+
+						<div class="col-sm-10">
+							<input type="text" class="form-control" ng-model="subject"/>
+						</div>
+					</div>
+
+					<div class="form-group">
+						<label for="message" class="col-sm-2 control-label">Message:</label>
+
+						<div class="col-sm-10">
+							<textarea id="message" class="form-control" ng-model="message" rows="10"
+									  cols="50"></textarea>
+						</div>
+					</div>
+
+					<button class="btn btn-lg btn-primary pull-right" ng-click="contacto(email, subject, message)">Send
+					</button>
+				</div>
+			</div>
+		</div>
+		<div class="pad"></div>
+	</div>
+</div>
