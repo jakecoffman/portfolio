@@ -48,7 +48,7 @@ func Emailer(w http.ResponseWriter, r *http.Request) {
 			}
 
 			c.Mail("no-reply@jakecoffman.com")
-			c.Rcpt("jake@jakecoffman.com")
+			c.Rcpt("jake.coffman@gmail.com")
 			wc, err := c.Data()
 			if err != nil {
 				println(err.Error())
