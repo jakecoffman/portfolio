@@ -71,6 +71,7 @@ body {
 #main {
     overflow: auto;
     padding-bottom: 150px;
+    margin-bottom: 0;
 }
 
 .footer {
