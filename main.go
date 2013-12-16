@@ -41,11 +41,21 @@ func Emailer(w http.ResponseWriter, r *http.Request) {
 		} else {
 			auth := smtp.PlainAuth("", "no-reply@coffshire.com", password, "smtp.gmail.com")
 			to := []string{"jakecoffman@gmail.com"}
-			payload := []byte(fmt.Sprintf("Subject: Portfolio contact\r\n\r\nEmail: %s\r\nSubject: %s\r\nMessage:\r\n%s", data.Email, data.Subject, data.Message))
+			payload := []byte(fmt.Sprintf(`From: no-reply@gmail.com
+To: jakecoffman@gmail.com
+Subject: Portfolio contact
+MIME-Version: 1.0
+Content-Transfer-Encoding: 8bit
+Content-Type: text/plain; charset="UTF-8"
+
+Email: %s
+Subject: %s
+Message:
+%s`, data.Email, data.Subject, data.Message))
 			err := smtp.SendMail("smtp.gmail.com:587", auth, "no-reply@coffshire.com", to, payload)
 			if err != nil {
 				println(err.Error())
-				http.Error(w, "Failed sending", http.StatusInternalServerError)
+				http.Error(w, err.Error(), http.StatusInternalServerError)
 				return
 			} else {
 				w.WriteHeader(201)
